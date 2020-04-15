@@ -1,0 +1,10 @@
+<component name="ProjectCodeStyleConfiguration">
+  <code_scheme name="Project" version="173">
+    <JavaCodeStyleSettings>
+      <option name="USE_FQ_CLASS_NAMES" value="true" />
+    </JavaCodeStyleSettings>
+    <ScalaCodeStyleSettings>
+      <option name="collectImports" value="false" />
+    </ScalaCodeStyleSettings>
+  </code_scheme>
+</component>
