@@ -12,9 +12,12 @@ public class Factory extends CreditCardFactory {
     @Override
     public CreditCard getCreditCard(CardType cardType) {
         switch (cardType) {
-            case GOLD: return new Gold();
-            case PLATINUM: return new Platinum();
-            default: break;
+            case GOLD:
+                return new Gold();
+            case PLATINUM:
+                return new Platinum();
+            default:
+                break;
         }
         return null;
     }

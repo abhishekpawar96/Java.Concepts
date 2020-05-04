@@ -7,12 +7,10 @@ import com.patterns.abstact.factory.Validator;
 import com.patterns.builder.LunchOrder;
 import com.patterns.factory.Website;
 import com.patterns.factory.WebsiteFactory;
+import com.patterns.factory.WebsiteType;
 import com.patterns.prototype.Book;
 import com.patterns.prototype.Registry;
 import com.patterns.singleton.DBSingleton;
-
-import static com.patterns.factory.WebsiteType.BLOG;
-import static com.patterns.factory.WebsiteType.SHOP;
 
 public class Main {
 
@@ -62,8 +60,8 @@ public class Main {
 
         // Factory Method
         System.out.println("============= FACTORY METHOD DEMO =============");
-        Website shoppingWebsite = WebsiteFactory.getWebsite(SHOP);
-        Website bloggingWebsite = WebsiteFactory.getWebsite(BLOG);
+        Website shoppingWebsite = WebsiteFactory.getWebsite(WebsiteType.SHOP);
+        Website bloggingWebsite = WebsiteFactory.getWebsite(WebsiteType.BLOG);
         System.out.println(shoppingWebsite.getPages());
         System.out.println(bloggingWebsite.getPages());
 
