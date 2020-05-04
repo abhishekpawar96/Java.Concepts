@@ -10,4 +10,8 @@ public class ValidatorImpl implements Validator {
         return false;
     }
 
+    @Override
+    public String toString() {
+        return "VISA Validator";
+    }
 }
