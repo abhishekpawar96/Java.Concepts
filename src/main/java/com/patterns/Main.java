@@ -78,7 +78,6 @@ public class Main {
         System.out.println(visaCard);
         System.out.println(visaValidator);
 
-
     }
 
 }
