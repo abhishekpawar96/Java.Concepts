@@ -1,18 +1,26 @@
 package com.patterns;
 
 import com.patterns.builder.LunchOrder;
+import com.patterns.factory.Website;
+import com.patterns.factory.WebsiteFactory;
 import com.patterns.prototype.Book;
 import com.patterns.prototype.Registry;
 import com.patterns.singleton.DBSingleton;
 
+import static com.patterns.factory.WebsiteType.BLOG;
+import static com.patterns.factory.WebsiteType.SHOP;
+
 public class Main {
 
     public static void main(String[] args) {
+
         // Singleton Demo
+        System.out.println("============= SINGLETON DEMO =============");
         DBSingleton instance = DBSingleton.getInstance();
         System.out.println(instance);
 
         // Builder Demo
+        System.out.println("============= BUILDER DEMO =============");
         LunchOrder.Builder builder = new LunchOrder.Builder();
         builder.bread("Wheat")
                 .condiments("Lettuce")
@@ -25,6 +33,7 @@ public class Main {
         System.out.println(lunchOrder.getMeat());
 
         // Prototype Demo
+        System.out.println("============= PROTOTYPE DEMO =============");
         Registry registry = new Registry();
         Book book = (Book) registry.createItem("Book");
         book.setTitle("Creational Patterns in Java");
@@ -47,6 +56,12 @@ public class Main {
                         + anotherBook.getPrice()
         );
 
+        // Factory Method
+        System.out.println("============= FACTORY METHOD DEMO =============");
+        Website shoppingWebsite = WebsiteFactory.getWebsite(SHOP);
+        Website bloggingWebsite = WebsiteFactory.getWebsite(BLOG);
+        System.out.println(shoppingWebsite.getPages());
+        System.out.println(bloggingWebsite.getPages());
     }
 
 }
