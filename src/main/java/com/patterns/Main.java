@@ -3,6 +3,7 @@ package com.patterns;
 import com.patterns.abstact.factory.CardType;
 import com.patterns.abstact.factory.CreditCard;
 import com.patterns.abstact.factory.CreditCardFactory;
+import com.patterns.abstact.factory.Validator;
 import com.patterns.builder.LunchOrder;
 import com.patterns.factory.Website;
 import com.patterns.factory.WebsiteFactory;
@@ -69,11 +70,15 @@ public class Main {
         // Abstract Factory Method
         System.out.println("============= ABSTRACT FACTORY METHOD DEMO =============");
         CreditCardFactory abstractFactory = CreditCardFactory.getCreditCardFactory(775);
-        CreditCard creditCard = abstractFactory.getCreditCard(CardType.PLATINUM);
-        System.out.println(creditCard.getClass());
+        CreditCard amexCard = abstractFactory.getCreditCard(CardType.PLATINUM);
+        Validator amexValidator = abstractFactory.getValidator(CardType.PLATINUM);
+        System.out.println(amexCard);
+        System.out.println(amexValidator);
         abstractFactory = CreditCardFactory.getCreditCardFactory(600);
-        CreditCard creditCard1 = abstractFactory.getCreditCard(CardType.GOLD);
-        System.out.println(creditCard1.getClass());
+        CreditCard visaCard = abstractFactory.getCreditCard(CardType.GOLD);
+        Validator visaValidator = abstractFactory.getValidator(CardType.GOLD);
+        System.out.println(visaCard);
+        System.out.println(visaValidator);
 
 
     }
