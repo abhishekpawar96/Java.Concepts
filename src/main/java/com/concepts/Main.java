@@ -16,7 +16,7 @@ public class Main {
 
         Consumer_.greetCustomer.accept(c);
 
-        BiConsumer_.greetCustomer.accept(c,false);
+        BiConsumer_.greetCustomer.accept(c, false);
 
         System.out.println(Predicate_.isValidPhoneNumber.test(c.getPhoneNumber()));
 

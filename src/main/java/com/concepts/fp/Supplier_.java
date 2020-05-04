@@ -10,6 +10,6 @@ public class Supplier_ {
             () -> Optional_.customer;
 
     public static Supplier<IllegalStateException> illegalStateException =
-            () ->  new IllegalStateException("Failed to load Customer");
+            () -> new IllegalStateException("Failed to load Customer");
 
 }

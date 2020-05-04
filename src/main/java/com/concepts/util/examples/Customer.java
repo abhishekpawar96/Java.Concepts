@@ -5,6 +5,8 @@ import java.util.List;
 import static com.concepts.util.examples.Customer.Samples.*;
 
 public class Customer {
+    public static List<Customer> samples = List.of(anna, tom, hank, kyle);
+    public static Customer random = samples.get(0);
     private final String name;
     private final String phoneNumber;
 
@@ -20,10 +22,6 @@ public class Customer {
     public String getPhoneNumber() {
         return phoneNumber;
     }
-
-    public static List<Customer> samples = List.of(anna, tom, hank, kyle);
-
-    public static Customer random = samples.get(0);
 
     static class Samples {
         public static final Customer anna = new Customer("Anna", "678-865-4352");
