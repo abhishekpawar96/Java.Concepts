@@ -7,20 +7,20 @@ public class Registry {
 
     private final Map<String, Item> items = new HashMap<String, Item>();
 
-    public Item createItem (String type) {
+    public Registry() {
+        loadItems();
+    }
+
+    public Item createItem(String type) {
         Item item = null;
 
         try {
-            item = (Item)(items.get(type)).clone();
+            item = (Item) (items.get(type)).clone();
         } catch (CloneNotSupportedException e) {
             e.printStackTrace();
         }
 
         return item;
-    }
-
-    public Registry() {
-        loadItems();
     }
 
     private void loadItems() {

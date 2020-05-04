@@ -2,6 +2,34 @@ package com.patterns.builder;
 
 public class LunchOrder {
 
+    private final String bread;
+    private final String condiments;
+    private final String dressing;
+    private final String meat;
+
+    private LunchOrder(Builder builder) {
+        this.bread = builder.bread;
+        this.condiments = builder.condiments;
+        this.dressing = builder.dressing;
+        this.meat = builder.meat;
+    }
+
+    public String getBread() {
+        return bread;
+    }
+
+    public String getCondiments() {
+        return condiments;
+    }
+
+    public String getDressing() {
+        return dressing;
+    }
+
+    public String getMeat() {
+        return meat;
+    }
+
     public static class Builder {
 
         private String bread;
@@ -37,34 +65,6 @@ public class LunchOrder {
             return this;
         }
 
-    }
-
-    private LunchOrder(Builder builder) {
-        this.bread = builder.bread;
-        this.condiments = builder.condiments;
-        this.dressing = builder.dressing;
-        this.meat = builder.meat;
-    }
-
-    private final String bread;
-    private final String condiments;
-    private final String dressing;
-    private final String meat;
-
-    public String getBread() {
-        return bread;
-    }
-
-    public String getCondiments() {
-        return condiments;
-    }
-
-    public String getDressing() {
-        return dressing;
-    }
-
-    public String getMeat() {
-        return meat;
     }
 
 }
