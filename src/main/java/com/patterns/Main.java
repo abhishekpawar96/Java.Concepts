@@ -9,6 +9,10 @@ import com.patterns.bridge.*;
 import com.patterns.builder.LunchOrder;
 import com.patterns.composite.Menu;
 import com.patterns.composite.MenuItem;
+import com.patterns.decorator.DressingDecorator;
+import com.patterns.decorator.MeatDecorator;
+import com.patterns.decorator.Sandwich;
+import com.patterns.decorator.SimpleSandwich;
 import com.patterns.factory.Website;
 import com.patterns.factory.WebsiteFactory;
 import com.patterns.factory.WebsiteType;
@@ -132,6 +136,13 @@ public class Main {
         System.out.println(mainMenu.toString());
     }
 
+    // Decorator Demo
+    private static void decoratorDemo() {
+        System.out.println(banner("DECORATOR"));
+        Sandwich sandwich = new DressingDecorator(new MeatDecorator(new SimpleSandwich()));
+        System.out.println(sandwich.make());
+    }
+
     public static void main(String[] args) {
         singletonDemo();
         builderDemo();
@@ -141,6 +152,7 @@ public class Main {
         adapterDemo();
         bridgeDemo();
         compositeDemo();
+        decoratorDemo();
     }
 
 }
