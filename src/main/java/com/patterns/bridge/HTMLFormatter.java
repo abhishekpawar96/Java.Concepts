@@ -6,7 +6,7 @@ public class HTMLFormatter implements Formatter {
 
     @Override
     public String format(String header, List<Detail> details) {
-        final String indent = "\t";
+        final String  indent  = "\t";
         StringBuilder builder = new StringBuilder();
         builder
                 .append("<TABLE>")

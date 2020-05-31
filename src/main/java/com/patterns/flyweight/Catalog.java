@@ -8,7 +8,7 @@ public class Catalog {
     private final Map<String, Item> items = new HashMap<String, Item>();
 
     public Item lookup(String itemName) {
-        if(!items.containsKey(itemName))
+        if (!items.containsKey(itemName))
             items.put(itemName, new Item(itemName));
         return items.get(itemName);
     }

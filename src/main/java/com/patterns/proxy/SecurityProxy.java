@@ -3,7 +3,7 @@ package com.patterns.proxy;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 
-import static java.lang.reflect.Proxy.*;
+import static java.lang.reflect.Proxy.newProxyInstance;
 
 public class SecurityProxy implements InvocationHandler {
 
@@ -24,10 +24,10 @@ public class SecurityProxy implements InvocationHandler {
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         Object result;
         try {
-            if(method.getName().equalsIgnoreCase("postToTimeline")) {
+            if (method.getName().equalsIgnoreCase("postToTimeline")) {
                 throw new IllegalAccessException("Post are currently not allowed");
             } else {
-                result = method.invoke(obj , args);
+                result = method.invoke(obj, args);
             }
         } catch (java.lang.reflect.InvocationTargetException e) {
             throw e.getTargetException();

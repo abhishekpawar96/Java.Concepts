@@ -26,7 +26,7 @@ import com.patterns.singleton.DBSingleton;
 
 public class Main {
 
-    private static String banner(String pattern){
+    private static String banner(String pattern) {
         final String decorator = "=============";
         return decorator + " " + pattern.toUpperCase() + " DEMO " + decorator;
     }
@@ -57,26 +57,26 @@ public class Main {
     private static void prototypeDemo() {
         System.out.println(banner("PROTOTYPE"));
         Registry registry = new Registry();
-        Book book = (Book) registry.createItem("Book");
+        Book     book     = (Book) registry.createItem("Book");
         book.setTitle("Creational Patterns in Java");
         book.setNumberOfPages(546);
         System.out.println(
                 book.getTitle()
-                        + " ("
-                        + book.getNumberOfPages()
-                        + "pages): "
-                        + book.getPrice()
-        );
+                + " ("
+                + book.getNumberOfPages()
+                + "pages): "
+                + book.getPrice()
+                          );
         Book anotherBook = (Book) registry.createItem("Book");
         anotherBook.setTitle("Gang Of Four");
         anotherBook.setNumberOfPages(412);
         System.out.println(
                 anotherBook.getTitle()
-                        + " ("
-                        + anotherBook.getNumberOfPages()
-                        + "pages): "
-                        + anotherBook.getPrice()
-        );
+                + " ("
+                + anotherBook.getNumberOfPages()
+                + "pages): "
+                + anotherBook.getPrice()
+                          );
     }
 
     // Factory Demo
@@ -94,13 +94,13 @@ public class Main {
     private static void abstractFactoryDemo() {
         System.out.println(banner("ABSTRACT FACTORY"));
         CreditCardFactory abstractFactory = CreditCardFactory.getCreditCardFactory(775);
-        CreditCard amexCard = abstractFactory.getCreditCard(CardType.PLATINUM);
-        Validator amexValidator = abstractFactory.getValidator(CardType.PLATINUM);
+        CreditCard        amexCard        = abstractFactory.getCreditCard(CardType.PLATINUM);
+        Validator         amexValidator   = abstractFactory.getValidator(CardType.PLATINUM);
         System.out.println(amexCard);
         System.out.println(amexValidator);
         abstractFactory = CreditCardFactory.getCreditCardFactory(600);
-        CreditCard visaCard = abstractFactory.getCreditCard(CardType.GOLD);
-        Validator visaValidator = abstractFactory.getValidator(CardType.GOLD);
+        CreditCard visaCard      = abstractFactory.getCreditCard(CardType.GOLD);
+        Validator  visaValidator = abstractFactory.getValidator(CardType.GOLD);
         System.out.println(visaCard);
         System.out.println(visaValidator);
     }
@@ -120,7 +120,7 @@ public class Main {
         movie.setTitle("John Wick");
         movie.setRuntime("2:15");
         movie.setYear("2014");
-        Printer moviePrinter = new MoviePrinter(movie);
+        Printer   moviePrinter   = new MoviePrinter(movie);
         Formatter printFormatter = new PrintFormatter();
         System.out.println(moviePrinter.print(printFormatter));
         Formatter htmlFormatter = new HTMLFormatter();
@@ -130,10 +130,10 @@ public class Main {
     // Composite Demo
     private static void compositeDemo() {
         System.out.println(banner("COMPOSITE"));
-        Menu mainMenu = new Menu("Main", "/main");
-        Menu claimsSubMenu = new Menu("Claims", "/claims");
+        Menu     mainMenu       = new Menu("Main", "/main");
+        Menu     claimsSubMenu  = new Menu("Claims", "/claims");
         MenuItem safetyMainItem = new MenuItem("Safety", "/safety");
-        MenuItem personalMenu = new MenuItem("Personal", "/persona");
+        MenuItem personalMenu   = new MenuItem("Personal", "/persona");
         mainMenu.add(safetyMainItem);
         mainMenu.add(claimsSubMenu);
         claimsSubMenu.add(personalMenu);

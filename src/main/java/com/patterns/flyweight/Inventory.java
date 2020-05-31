@@ -9,13 +9,13 @@ public class Inventory {
     private final List<Order> orders = new CopyOnWriteArrayList<>();
 
     public void takeOrder(String itemName, int orderNumber) {
-        Item item = catalog.lookup(itemName);
+        Item  item  = catalog.lookup(itemName);
         Order order = new Order(orderNumber, item);
         orders.add(order);
     }
 
     public void process() {
-        for (Order order: orders) {
+        for (Order order : orders) {
             order.process();
             orders.remove(order);
         }

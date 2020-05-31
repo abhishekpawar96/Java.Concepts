@@ -10,6 +10,6 @@ public class Order {
     }
 
     void process() {
-        System.out.println("Ordering " + item  + " for order number " + number);
+        System.out.println("Ordering " + item + " for order number " + number);
     }
 }

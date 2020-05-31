@@ -31,9 +31,9 @@ public class EmployeeLDAPAdapter implements Employee {
     @Override
     public String toString() {
         return "Id: " + getId() + "\t" +
-                "FirstName: " + getFirstName() + "\t" +
-                "LastName: " + getLastName() + "\t" +
-                "Email: " + getEmail();
+               "FirstName: " + getFirstName() + "\t" +
+               "LastName: " + getLastName() + "\t" +
+               "Email: " + getEmail();
     }
 
 }
