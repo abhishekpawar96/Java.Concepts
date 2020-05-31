@@ -7,6 +7,8 @@ import com.patterns.abstact.factory.Validator;
 import com.patterns.adapter.EmployeeClient;
 import com.patterns.bridge.*;
 import com.patterns.builder.LunchOrder;
+import com.patterns.composite.Menu;
+import com.patterns.composite.MenuItem;
 import com.patterns.factory.Website;
 import com.patterns.factory.WebsiteFactory;
 import com.patterns.factory.WebsiteType;
@@ -16,15 +18,21 @@ import com.patterns.singleton.DBSingleton;
 
 public class Main {
 
-    public static void main(String[] args) {
+    private static String banner(String pattern){
+        final String decorator = "=============";
+        return decorator + " " + pattern.toUpperCase() + " DEMO " + decorator;
+    }
 
-        // Singleton Demo
-        System.out.println("============= SINGLETON DEMO =============");
+    // Singleton Demo
+    private static void singletonDemo() {
+        System.out.println(banner("SINGLETON"));
         DBSingleton instance = DBSingleton.getInstance();
         System.out.println(instance);
+    }
 
-        // Builder Demo
-        System.out.println("============= BUILDER DEMO =============");
+    // Builder Demo
+    private static void builderDemo() {
+        System.out.println(banner("BUILDER"));
         LunchOrder.Builder builder = new LunchOrder.Builder();
         builder.bread("Wheat")
                 .condiments("Lettuce")
@@ -35,9 +43,11 @@ public class Main {
         System.out.println(lunchOrder.getCondiments());
         System.out.println(lunchOrder.getDressing());
         System.out.println(lunchOrder.getMeat());
+    }
 
-        // Prototype Demo
-        System.out.println("============= PROTOTYPE DEMO =============");
+    // Prototype Demo
+    private static void prototypeDemo() {
+        System.out.println(banner("PROTOTYPE"));
         Registry registry = new Registry();
         Book book = (Book) registry.createItem("Book");
         book.setTitle("Creational Patterns in Java");
@@ -59,16 +69,22 @@ public class Main {
                         + "pages): "
                         + anotherBook.getPrice()
         );
+    }
 
-        // Factory Method
-        System.out.println("============= FACTORY METHOD DEMO =============");
+    // Factory Demo
+    private static void factoryDemo() {
+        System.out.println(banner("FACTORY"));
         Website shoppingWebsite = WebsiteFactory.getWebsite(WebsiteType.SHOP);
         Website bloggingWebsite = WebsiteFactory.getWebsite(WebsiteType.BLOG);
+        assert shoppingWebsite != null;
         System.out.println(shoppingWebsite.getPages());
+        assert bloggingWebsite != null;
         System.out.println(bloggingWebsite.getPages());
+    }
 
-        // Abstract Factory Method
-        System.out.println("============= ABSTRACT FACTORY METHOD DEMO =============");
+    // Abstract Factory Demo
+    private static void abstractFactoryDemo() {
+        System.out.println(banner("ABSTRACT FACTORY"));
         CreditCardFactory abstractFactory = CreditCardFactory.getCreditCardFactory(775);
         CreditCard amexCard = abstractFactory.getCreditCard(CardType.PLATINUM);
         Validator amexValidator = abstractFactory.getValidator(CardType.PLATINUM);
@@ -79,14 +95,18 @@ public class Main {
         Validator visaValidator = abstractFactory.getValidator(CardType.GOLD);
         System.out.println(visaCard);
         System.out.println(visaValidator);
+    }
 
-        // Adapter Method
-        System.out.println("============= ADAPTER DEMO =============");
+    // Adapter Demo
+    private static void adapterDemo() {
+        System.out.println(banner("ADAPTER"));
         EmployeeClient employeeClient = new EmployeeClient();
         System.out.println(employeeClient.getEmployees());
+    }
 
-        // Bridge Method
-        System.out.println("============= BRIDGE DEMO =============");
+    // Bridge Demo
+    private static void bridgeDemo() {
+        System.out.println(banner("BRIDGE"));
         Movie movie = new Movie();
         movie.setClassification("Action");
         movie.setTitle("John Wick");
@@ -97,6 +117,30 @@ public class Main {
         System.out.println(moviePrinter.print(printFormatter));
         Formatter htmlFormatter = new HTMLFormatter();
         System.out.println(moviePrinter.print(htmlFormatter));
+    }
+
+    // Composite Demo
+    private static void compositeDemo() {
+        System.out.println(banner("COMPOSITE"));
+        Menu mainMenu = new Menu("Main", "/main");
+        Menu claimsSubMenu = new Menu("Claims", "/claims");
+        MenuItem safetyMainItem = new MenuItem("Safety", "/safety");
+        MenuItem personalMenu = new MenuItem("Personal", "/persona");
+        mainMenu.add(safetyMainItem);
+        mainMenu.add(claimsSubMenu);
+        claimsSubMenu.add(personalMenu);
+        System.out.println(mainMenu.toString());
+    }
+
+    public static void main(String[] args) {
+        singletonDemo();
+        builderDemo();
+        prototypeDemo();
+        factoryDemo();
+        abstractFactoryDemo();
+        adapterDemo();
+        bridgeDemo();
+        compositeDemo();
     }
 
 }
