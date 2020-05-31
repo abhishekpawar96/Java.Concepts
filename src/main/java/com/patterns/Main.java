@@ -19,6 +19,9 @@ import com.patterns.factory.WebsiteType;
 import com.patterns.flyweight.Inventory;
 import com.patterns.prototype.Book;
 import com.patterns.prototype.Registry;
+import com.patterns.proxy.SecurityProxy;
+import com.patterns.proxy.TwitterService;
+import com.patterns.proxy.TwitterServiceStub;
 import com.patterns.singleton.DBSingleton;
 
 public class Main {
@@ -164,6 +167,18 @@ public class Main {
         System.out.println(inventory.report());
     }
 
+    // Proxy Demo
+    private static void proxyDemo() {
+        System.out.println(banner("PROXY"));
+        TwitterService service = (TwitterService) SecurityProxy.newInstance(new TwitterServiceStub());
+        System.out.println(service.getTimeline("TwitterAccount"));
+        try {
+            service.postToTimeline("TwitterAccount", "this message is not supposed to be posted");
+        } catch (RuntimeException r) {
+            System.out.println(r.getMessage());
+        }
+    }
+
     public static void main(String[] args) {
         singletonDemo();
         builderDemo();
@@ -175,6 +190,7 @@ public class Main {
         compositeDemo();
         decoratorDemo();
         flyweightDemo();
+        proxyDemo();
     }
 
 }
