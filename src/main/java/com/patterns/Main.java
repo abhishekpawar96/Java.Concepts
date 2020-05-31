@@ -92,9 +92,11 @@ public class Main {
         movie.setTitle("John Wick");
         movie.setRuntime("2:15");
         movie.setYear("2014");
-        Formatter printFormatter = new PrintFormatter();
         Printer moviePrinter = new MoviePrinter(movie);
+        Formatter printFormatter = new PrintFormatter();
         System.out.println(moviePrinter.print(printFormatter));
+        Formatter htmlFormatter = new HTMLFormatter();
+        System.out.println(moviePrinter.print(htmlFormatter));
     }
 
 }
