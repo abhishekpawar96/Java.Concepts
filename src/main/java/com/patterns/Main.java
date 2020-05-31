@@ -5,6 +5,7 @@ import com.patterns.abstact.factory.CreditCard;
 import com.patterns.abstact.factory.CreditCardFactory;
 import com.patterns.abstact.factory.Validator;
 import com.patterns.adapter.EmployeeClient;
+import com.patterns.bridge.*;
 import com.patterns.builder.LunchOrder;
 import com.patterns.factory.Website;
 import com.patterns.factory.WebsiteFactory;
@@ -83,6 +84,17 @@ public class Main {
         System.out.println("============= ADAPTER DEMO =============");
         EmployeeClient employeeClient = new EmployeeClient();
         System.out.println(employeeClient.getEmployees());
+
+        // Bridge Method
+        System.out.println("============= BRIDGE DEMO =============");
+        Movie movie = new Movie();
+        movie.setClassification("Action");
+        movie.setTitle("John Wick");
+        movie.setRuntime("2:15");
+        movie.setYear("2014");
+        Formatter printFormatter = new PrintFormatter();
+        Printer moviePrinter = new MoviePrinter(movie);
+        System.out.println(moviePrinter.print(printFormatter));
     }
 
 }
