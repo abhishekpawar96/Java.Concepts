@@ -16,6 +16,7 @@ import com.patterns.decorator.SimpleSandwich;
 import com.patterns.factory.Website;
 import com.patterns.factory.WebsiteFactory;
 import com.patterns.factory.WebsiteType;
+import com.patterns.flyweight.Inventory;
 import com.patterns.prototype.Book;
 import com.patterns.prototype.Registry;
 import com.patterns.singleton.DBSingleton;
@@ -143,6 +144,26 @@ public class Main {
         System.out.println(sandwich.make());
     }
 
+    // FlyWeight Demo
+    private static void flyweightDemo() {
+        System.out.println(banner("FLYWEIGHT"));
+        Inventory inventory = new Inventory();
+        inventory.takeOrder("Roomba", 221);
+        inventory.takeOrder("Bose Headphones", 361);
+        inventory.takeOrder("Samsung TV", 432);
+        inventory.takeOrder("Samsung TV", 323);
+        inventory.takeOrder("Roomba", 563);
+        inventory.takeOrder("Bose Headphones", 321);
+        inventory.takeOrder("Roomba", 234);
+        inventory.takeOrder("Samsung TV", 54);
+        inventory.takeOrder("Roomba", 34);
+        inventory.takeOrder("Bose Headphones", 365);
+        inventory.takeOrder("Samsung TV", 332);
+        inventory.takeOrder("Roomba", 456);
+        inventory.process();
+        System.out.println(inventory.report());
+    }
+
     public static void main(String[] args) {
         singletonDemo();
         builderDemo();
@@ -153,6 +174,7 @@ public class Main {
         bridgeDemo();
         compositeDemo();
         decoratorDemo();
+        flyweightDemo();
     }
 
 }
