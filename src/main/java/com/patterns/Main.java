@@ -4,6 +4,7 @@ import com.patterns.abstact.factory.CardType;
 import com.patterns.abstact.factory.CreditCard;
 import com.patterns.abstact.factory.CreditCardFactory;
 import com.patterns.abstact.factory.Validator;
+import com.patterns.adapter.EmployeeClient;
 import com.patterns.builder.LunchOrder;
 import com.patterns.factory.Website;
 import com.patterns.factory.WebsiteFactory;
@@ -78,6 +79,10 @@ public class Main {
         System.out.println(visaCard);
         System.out.println(visaValidator);
 
+        // Adapter Method
+        System.out.println("============= ADAPTER DEMO =============");
+        EmployeeClient employeeClient = new EmployeeClient();
+        System.out.println(employeeClient.getEmployees());
     }
 
 }
